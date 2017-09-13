@@ -142,3 +142,45 @@ var reducePreco = carros2.reduce(function(prev,cur){
 	return prev + cur.preco;
 },0);
 console.log(reducePreco)
+
+// operadores #12
+
+//comparando se dois objetos são iguais
+var x = {};
+var y = {};
+console.log( x == y ? 'x == y' : 'x != y' );
+
+// função que retorna um número aleatório num inteervalo passado por parametro
+var generateSerial = function(max) {
+	//se o max vir diferente de um número eu atribuo 1000 pra ele
+	//1º forma
+	// if(!max) {
+	// 	max = 1000;
+	// }
+	//2º forma - se o max vir diferente de zero atribui 1000 pra ele, se ele vir com um valor passa esse valor pro max
+	max = max || 1000;
+	return Math.floor(Math.random() * max);
+}
+console.log(generateSerial(1000));
+console.log(generateSerial());
+
+//cria objeto pessoa
+var Pessoa = function(nome,idade) {
+	this.nome = nome;
+	this.idade = idade;
+}
+//cria um novo objeto com estancia de pessoa
+var pedro = new Pessoa('Pedro', 20);
+console.log(pedro);
+// compara se pedro é um estancia de pessoa
+console.log(pedro instanceof Pessoa);
+// compara se pedro é um estancia de Date
+console.log(pedro instanceof Date);
+// verifica se tem 'nome' no objeto pedro
+console.log("nome" in pedro);
+// verifica se tem 'peso' no objeto pedro
+console.log("peso" in pedro);
+//deleta a idade
+delete pedro.idade;
+//verifica se tem idade no objeto pedro
+console.log("idade" in pedro);
