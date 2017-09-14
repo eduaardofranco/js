@@ -1,3 +1,5 @@
+"use strict";
+
 var helloworld = function() {
 	return function() {
 		return "Hello World";
@@ -10,7 +12,7 @@ console.log(helloworld);
 console.log(helloworld()());
 
 
-//// aplly, call, arguments.....
+// aplly, call, arguments.....
 var getIdade = function(extra){
 	//retorna os argumentos acessiveis da função
 	//console.log(arguments);
@@ -169,12 +171,12 @@ var Pessoa = function(nome,idade) {
 	this.nome = nome;
 	this.idade = idade;
 }
-//cria um novo objeto com estancia de pessoa
+//cria um novo objeto com instancia de pessoa
 var pedro = new Pessoa('Pedro', 20);
 console.log(pedro);
-// compara se pedro é um estancia de pessoa
+// compara se pedro é um instancia de pessoa
 console.log(pedro instanceof Pessoa);
-// compara se pedro é um estancia de Date
+// compara se pedro é um instancia de Date
 console.log(pedro instanceof Date);
 // verifica se tem 'nome' no objeto pedro
 console.log("nome" in pedro);
@@ -184,3 +186,20 @@ console.log("peso" in pedro);
 delete pedro.idade;
 //verifica se tem idade no objeto pedro
 console.log("idade" in pedro);
+
+//cria um objeto pessoa2
+var pessoa2 = function(nome, email){
+     return {
+         nome : nome,
+         email: email,
+         fala: function(){
+             console.log("Olá, meu nome é "+this.nome+" e meu email é "+this.email);
+         }
+     };
+};
+//Deste modo, para obter uma pessoa, basta chamar a função acima:
+
+//cria um novo objeto leo estendido do objeto pessoa
+var leo = pessoa2("Leonardo", "leonardo.wolter@caelum.com.br");
+//chama a função fala() que está dentro do objeto pessoa
+leo.fala(); // Olá, meu nome é Leonardo e meu email é leonardo.wolter@caelum.com.br
