@@ -203,3 +203,21 @@ var pessoa2 = function(nome, email){
 var leo = pessoa2("Leonardo", "leonardo.wolter@caelum.com.br");
 //chama a função fala() que está dentro do objeto pessoa
 leo.fala(); // Olá, meu nome é Leonardo e meu email é leonardo.wolter@caelum.com.br
+
+/** statements */
+
+//cria um objeto pra definir o erro
+var HackerError = function(message) {
+	this.message = message;
+	this.name = "HackerErro"
+}
+
+var toHackText = function(text) {
+	//verifica se o tipo de entrada é string se não for dispara o erro 
+	if (typeof text !== "string") throw new HackerError("Invalid Type");
+}
+try {
+	toHackText(10);
+} catch (error) {
+	console.log('Error: '+ error.message);
+}
