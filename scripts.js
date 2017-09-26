@@ -221,3 +221,49 @@ try {
 } catch (error) {
 	console.log('Error: '+ error.message);
 }
+//HERANÇA
+
+var homem = {
+	sexo: 'Masculino'
+};
+var joao = {
+	nome: "João",
+	idade: 20,
+	//seta o proto homem pro joão
+	__proto__: homem
+};
+var pedro = {
+	nome: "Pedro",
+	idade: 10
+};
+//seta o  proto homem pro pedro
+Object.setPrototypeOf(pedro, homem);
+
+console.log(pedro.nome +': ' +pedro.sexo);
+console.log(joao.nome +': ' +joao.sexo);
+/** __proto__ não é padrão e pode não funcionar em algumas engines */
+
+var claudio = {
+	nome: 'Claudio',
+	idade: 13,
+	sexo: 'Feminino'
+}
+Object.setPrototypeOf(claudio, homem);
+
+console.log(claudio.nome +": " +claudio.sexo); // Claudio: Feminino
+//vai retornar feminino pq primeiro é verificado se existe a propriedade sexo no objeto,
+//se existir ele exibe senão vai procurar no prototype
+
+//deleta o sexo 
+delete claudio.sexo;
+
+//retorna as propriedades do objeto
+console.log(Object.keys(claudio));
+
+//percorre as propriedades do objeto e imprimi
+for( let property in joao) {
+	//verifica se a propriedade faz parte ou não do objeto
+	if (!joao.hasOwnProperty(property)) continue;
+	console.log(property);
+}
+//no for in vai trazer o sexo pq ele percorre também os proto's do objeto
