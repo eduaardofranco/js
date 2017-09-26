@@ -145,6 +145,23 @@ var reducePreco = carros2.reduce(function(prev,cur){
 },0);
 console.log(reducePreco)
 
+// array de pessoas
+var myFriends = [
+    { name: "John", gender: "male" },
+    { name: "Kate", gender: "female" },
+    { name: "Mike", gender: "male" },
+    { name: "Sophie", gender: "female" },
+    { name: "Richard", gender: "male" },
+    { name: "Keith", gender: "male" }
+];
+
+// filtro baseado no gênero
+var isMale = function(x){
+    return x.gender == "male";
+}
+//retorna todos os homens
+console.log(myFriends.filter(isMale)); // John, Mike, Richard, Keith
+
 // operadores #12
 
 //comparando se dois objetos são iguais
@@ -267,3 +284,23 @@ for( let property in joao) {
 	console.log(property);
 }
 //no for in vai trazer o sexo pq ele percorre também os proto's do objeto
+
+function Lutador(){
+    this.attackPlayer = function(){
+    return true;
+    }
+} 
+
+function Habilidades(){
+    this.esquivaPlayer = function(){
+        console.log("esquivou");
+    }
+}
+
+//fazendo Lutador herdar de Habilidades
+Lutador.prototype = new Habilidades();
+let lutador1 = new Lutador();
+
+//verificando
+console.log(lutador1 instanceof Lutador); // true - lutador1 herdou Lutador
+console.log(lutador1 instanceof Habilidades); // true - lutador1 herdou habilidades
