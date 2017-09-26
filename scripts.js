@@ -162,6 +162,29 @@ var isMale = function(x){
 //retorna todos os homens
 console.log(myFriends.filter(isMale)); // John, Mike, Richard, Keith
 
+// aray medicos passo fundo
+let medicos = [
+    { nome: "ELISANGELA DE QUEVEDO WELTER", telefone: "(54) 3045-4070"},
+    { nome: "FLAVIA PEREIRA REGINATTO", telefone: "(54) 3632-1044"},
+    { nome: "GILVANA APARECIDA BONELLA", telefone: "(54) 3311-6244"},
+    { nome: "JOYCE BENCK UTZIG", telefone: "(54) 3632-2010"},
+    { nome: "JUSSARA LUCIA FERRAZ", telefone: "(54) 3311-6377"},
+    { nome: "LIGIA MARIA FERNANDES SAGGIN", telefone: "(54) 3311-8038"},
+    { nome: "MARGARET PASQUALOTTO OLIANI", telefone: "(54) 3313-4951"},
+    { nome: "MARILENE DONATO", telefone: "3313-6452"},
+    { nome: "MARINA MUNEROLI MARIN", telefone: "(54) 3632-1044"},
+    { nome: "RODRIGO MALHEIROS MENDONCA", telefone: "(54) 3312-3977"},
+    { nome: "SAIONARA ZAGO", telefone: "(54) 3311-3326"},
+    { nome: "SANDRA JOVINA MALHEIROS MENDONCA", telefone: "(54) 3312-3977"}
+];
+// pegar um médico randomicamente
+Array.prototype.medicoRandom = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
+let resultado = medicos.medicoRandom();
+console.log(resultado);
+
+
 // operadores #12
 
 //comparando se dois objetos são iguais
@@ -206,13 +229,13 @@ console.log("idade" in pedro);
 
 //cria um objeto pessoa2
 var pessoa2 = function(nome, email){
-     return {
-         nome : nome,
-         email: email,
-         fala: function(){
-             console.log("Olá, meu nome é "+this.nome+" e meu email é "+this.email);
-         }
-     };
+    return {
+        nome : nome,
+        email: email,
+        fala: function(){
+            console.log("Olá, meu nome é "+this.nome+" e meu email é "+this.email);
+        }
+    };
 };
 //Deste modo, para obter uma pessoa, basta chamar a função acima:
 
