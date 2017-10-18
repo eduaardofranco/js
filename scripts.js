@@ -138,7 +138,7 @@ carros2[1] = {marca: "Fiat", modelo: "Palio", preco: 20};
 carros2[2] = {marca: "Chevrolet", modelo: "Corsa", preco: 30};
 carros2[3] = {marca: "Wolks", modelo: "Fusca", preco: 40};
 
-//com o reduce eu consigo somar os valores prev é o ultimo elemento
+//com o reduce eu consigo somar os valores, prev é o ultimo elemento
 //e cur é o elemento atual
 var reducePreco = carros2.reduce(function(prev,cur){
 	return prev + cur.preco;
@@ -327,3 +327,15 @@ let lutador1 = new Lutador();
 //verificando
 console.log(lutador1 instanceof Lutador); // true - lutador1 herdou Lutador
 console.log(lutador1 instanceof Habilidades); // true - lutador1 herdou habilidades
+
+//ARROW FUNCTIONS
+
+//parametros default
+const multiply = (x, y = 1) => x * y
+console.log(multiply(4,2)) //8;
+console.log(multiply(4)); //4
+
+const sum = (...numbers) => 
+  numbers.reduce((acc, current) => acc + current,0)
+
+console.log(sum(1,2,3,4,5)); //15
