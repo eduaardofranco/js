@@ -339,3 +339,47 @@ const sum = (...numbers) =>
   numbers.reduce((acc, current) => acc + current,0)
 
 console.log(sum(1,2,3,4,5)); //15
+
+// PROMISES
+
+function delay(t){
+  return new Promise(function(resolve){
+    return setTimeout(resolve, t)
+  });
+}
+function logHi(){
+  console.log('hi');
+}
+//função hi vai executar depois da função delay retornar um valor
+delay(2000).then(logHi);
+
+
+// new Promise(function(resolve, reject) {
+//   setTimeout(() => resolve(1), 2000);
+
+// }).then((result) => {
+//   alert(result);
+//   return result + 2;
+// }).then((result) => {
+//   alert(result);
+//   return result + 2;
+// }).then((result) => {
+//   alert(result);
+//   return result + 2;
+// });
+
+
+console.log(rMarca);
+
+const aa = () => {
+  return new Promise(function(resolve, reject) {
+    setTimeout(() => {
+      console.log('uahuue');
+    },2000);
+  });
+};
+
+const b = () => {
+  console.log('b');
+}
+aa().then(b);
